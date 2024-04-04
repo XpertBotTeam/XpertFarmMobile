@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/src/simple/get_view.dart';
 import '../Controllers/LoginController.dart';
+import '../Routings/AppRoute.dart';
 
 class Login extends GetView<LoginController> {
   @override
@@ -48,7 +49,9 @@ class Login extends GetView<LoginController> {
                       ),
                     ),
                     SizedBox(height: 30,),
-                    Center(child: TextButton(onPressed: () {}, child: Text("Create Account", style: TextStyle(color: Color.fromRGBO(49, 39, 79, .6)),))),
+                    Center(child: TextButton(onPressed: () {
+                      Get.toNamed(AppRoute.register);
+                    }, child: Text("Create Account", style: TextStyle(color: Color.fromRGBO(49, 39, 79, .6)),))),
                   ],
                 ),
               )
