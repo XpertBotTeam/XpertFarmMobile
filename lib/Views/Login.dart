@@ -7,10 +7,10 @@ import '../Routings/AppRoute.dart';
 class Login extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
-      body: Center( // Wrapping SingleChildScrollView with Center
+      body: Center(
+        // Wrapping SingleChildScrollView with Center
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -20,38 +20,72 @@ class Login extends GetView<LoginController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text("Login", style: TextStyle(color: Color.fromRGBO(49, 39, 79, 1),
-                        fontWeight: FontWeight.bold, fontSize: 40)),
-                    SizedBox(height: 30,),
+                    Text("Login",
+                        style: TextStyle(
+                            color: Color.fromRGBO(49, 39, 79, 1),
+                            fontWeight: FontWeight.bold,
+                            fontSize: 40)),
+                    SizedBox(
+                      height: 30,
+                    ),
                     TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Email"),
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), hintText: "Email"),
                       keyboardType: TextInputType.emailAddress,
                       controller: controller.email,
                     ),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     TextField(
-                      decoration: InputDecoration(border: OutlineInputBorder(),hintText: "Password"),
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(), hintText: "Password"),
                       obscureText: true, // for hide password
                       controller: controller.password,
                     ),
-                    SizedBox(height: 20,),
-                    Center(child: TextButton(onPressed: () {}, child: Text("Forgot Password?", style: TextStyle(color: Color.fromRGBO(196, 135, 198, 1)),))),
-                    SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                        child: TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              "Forgot Password?",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(196, 135, 198, 1)),
+                            ))),
+                    SizedBox(
+                      height: 20,
+                    ),
                     MaterialButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        controller.login();
+                      },
                       color: Color.fromRGBO(49, 39, 79, 1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(50),
                       ),
                       height: 50,
                       child: Center(
-                        child: Text("Login", style: TextStyle(color: Colors.white),),
+                        child: Text(
+                          "Login",
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
                     ),
-                    SizedBox(height: 30,),
-                    Center(child: TextButton(onPressed: () {
-                      Get.toNamed(AppRoute.register);
-                    }, child: Text("Create Account", style: TextStyle(color: Color.fromRGBO(49, 39, 79, .6)),))),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Center(
+                        child: TextButton(
+                            onPressed: () {
+                              Get.toNamed(AppRoute.register);
+                            },
+                            child: Text(
+                              "Create Account",
+                              style: TextStyle(
+                                  color: Color.fromRGBO(49, 39, 79, .6)),
+                            ))),
                   ],
                 ),
               )
@@ -62,4 +96,3 @@ class Login extends GetView<LoginController> {
     );
   }
 }
-

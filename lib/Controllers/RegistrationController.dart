@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/src/simple/get_controllers.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../Core/Dialog.dart';
 import '../Core/Network/DioClient.dart';
 import '../Models/User.dart';
@@ -13,7 +13,7 @@ class RegistrationController extends GetxController{
   TextEditingController password = TextEditingController();
 
   RxBool loading = false.obs;
-
+  late SharedPreferences prefs;
 
   void register() async
   {
@@ -30,6 +30,7 @@ class RegistrationController extends GetxController{
         showSuccessDialog(Get.context!,"Success","User Registered Successfully",(){
           Get.offNamed(AppRoute.home);
         });
+        prefs.setString('token',post.data['token']);
       }
     }catch(e)
     {
